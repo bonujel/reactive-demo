@@ -11,27 +11,27 @@
 ### 1. Origin Contract (事件源合约)
 - **合约地址**: `0xAC4928eEF4B7D31Cf15b39Cd3cAe1aA476209f47`
 - **部署链**: Sepolia Testnet (Chain ID: 11155111)
-- **部署交易**: [查看部署交易]
 - **区块浏览器**: https://sepolia.etherscan.io/address/0xAC4928eEF4B7D31Cf15b39Cd3cAe1aA476209f47
 
 ### 2. Destination Contract (回调接收合约)
-- **合约地址**: `0xD56bdc8080E22DB9B515eAd49bCF9fE8329a6cd2`
+- **合约地址**: `0x15C5Db5CAC397607a21f9c67ae1F6E972549ebAf`
 - **部署链**: Sepolia Testnet (Chain ID: 11155111)
-- **部署交易**: [查看部署交易]
-- **区块浏览器**: https://sepolia.etherscan.io/address/0xD56bdc8080E22DB9B515eAd49bCF9fE8329a6cd2
+- **部署交易**: `0x51141cc4340f9137ea59047242bc5cf206747e23b04041a7d054b00d1d8a8f85`
+- **区块浏览器**: https://sepolia.etherscan.io/address/0x15C5Db5CAC397607a21f9c67ae1F6E972549ebAf
+- **回调代理地址**: `0x0000000000000000000000000000000000fffFfF`
 
 ### 3. Reactive Contract (监听合约)
-- **合约地址**: `0x02C33C6BBe040bA6cf396a88F27CF71044D91d02`
+- **合约地址**: `0xEddF0A67380909b9fC8355505d75FA8004dB41bf`
 - **部署链**: Reactive Lasna Testnet (Chain ID: 5318007)
-- **部署交易**: [查看部署交易]
-- **区块浏览器**: https://lasna.reactscan.net/address/0x02C33C6BBe040bA6cf396a88F27CF71044D91d02
+- **部署交易**: `0x462b4aeab59afc58fd863457e0dd9fd43f465bca125358094e626652e270cee1`
+- **区块浏览器**: https://lasna.reactscan.net/address/0xEddF0A67380909b9fC8355505d75FA8004dB41bf
 
 ## 测试结果
 
 ### 触发交易
-- **交易哈希**: `0x803e5150fa9f0f920a4c6059e0bd89aac903daede64b8e6b9b69de239e6f4c8f`
+- **交易哈希**: `0x15a9f77b3322c1ac7db3a9674f1106e0cf54291fcf0f81cb8e00fcbb008ef393`
 - **发送金额**: 0.001 ETH
-- **区块浏览器**: https://sepolia.etherscan.io/tx/0x803e5150fa9f0f920a4c6059e0bd89aac903daede64b8e6b9b69de239e6f4c8f
+- **区块浏览器**: https://sepolia.etherscan.io/tx/0x15a9f77b3322c1ac7db3a9674f1106e0cf54291fcf0f81cb8e00fcbb008ef393
 
 ### 事件验证
 
@@ -42,8 +42,19 @@
 
 #### 2. CallbackReceived 事件 (目标链)
 - **事件名称**: `CallbackReceived(address indexed origin, address indexed sender, address indexed reactive_sender)`
-- **事件日志**: [等待 30-60 秒后查看]
-- **验证链接**: https://sepolia.etherscan.io/address/0xD56bdc8080E22DB9B515eAd49bCF9fE8329a6cd2#events
+- **验证链接**: https://sepolia.etherscan.io/address/0x15C5Db5CAC397607a21f9c67ae1F6E972549ebAf#events
+- **状态**: ⏳ 等待中（预计 30-60 秒）
+- **说明**: 已使用正确的回调代理地址 `0x0000000000000000000000000000000000fffFfF` 重新部署
+
+## 更新记录
+
+### 2026-03-09 - 修复回调代理地址
+- **问题**: 初始配置使用了错误的回调代理地址
+- **解决**: 更新为正确的 Lasna Testnet 回调代理地址 `0x0000000000000000000000000000000000fffFfF`
+- **操作**: 重新部署 Destination Contract 和 Reactive Contract
+- **新地址**:
+  - Destination: `0x15C5Db5CAC397607a21f9c67ae1F6E972549ebAf`
+  - Reactive: `0xEddF0A67380909b9fC8355505d75FA8004dB41bf`
 
 ## 架构说明
 
@@ -78,9 +89,9 @@
 
 ## 代码仓库
 
-- **GitHub**: [填写仓库链接]
+- **GitHub**: https://github.com/bonujel/reactive-demo
 - **分支**: main
-- **提交**: [填写最新提交哈希]
+- **提交**: a14bef368911bd08ca7fb00bd3f6f0996a50dbf9
 
 ## 参考资源
 
