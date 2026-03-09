@@ -25,11 +25,13 @@ cp .env.example .env
 # 从 MetaMask 导出私钥（测试账户）
 
 # Reactive Network RPC（已预填）
-REACTIVE_RPC=https://kopli-rpc.rkt.ink
+REACTIVE_RPC=https://lasna-rpc.rnk.dev
 
 # 系统合约地址（已预填）
 SYSTEM_CONTRACT_ADDR=0x0000000000000000000000000000000000FFFFFF
-DESTINATION_CALLBACK_PROXY_ADDR=0x33Bbb7D0a2F1029550B0e91f653c4055DC9F4Dd8
+
+# Sepolia 目标链回调代理地址
+DESTINATION_CALLBACK_PROXY_ADDR=0xc9f36411C9897e7F959D99ffca2a0Ba7ee0D7bDA
 ```
 
 ## 3. 获取测试币
@@ -112,7 +114,7 @@ https://sepolia.etherscan.io/address/[CALLBACK_ADDR]#events
 ### 查看 Reactive Contract
 ```bash
 # 在 Reactive Scan 查看
-https://kopli.reactscan.net/address/[REACTIVE_ADDR]
+https://lasna.reactscan.net/address/[REACTIVE_ADDR]
 ```
 
 ## 常见问题
@@ -125,6 +127,7 @@ A:
 1. 检查发送金额是否 >= 0.001 ETH
 2. 等待 30-60 秒让 Reactive Network 处理
 3. 确认 Destination Contract 有足够余额（0.02 ETH）
+4. 确认 `DESTINATION_CALLBACK_PROXY_ADDR` 不是 Lasna 的 `0x000...fffFfF`，而是目标链 Sepolia 的官方 callback proxy
 
 ### Q: 如何计算事件 topic_0
 A:

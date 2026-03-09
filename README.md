@@ -34,6 +34,8 @@ foundryup
 ```
 
 2. 配置环境变量（复制 `.env.example` 为 `.env` 并填写）
+   - 如果目标链是 Sepolia，`DESTINATION_CALLBACK_PROXY_ADDR` 必须填写 `0xc9f36411C9897e7F959D99ffca2a0Ba7ee0D7bDA`
+   - 不要填写 Lasna 上的 `0x0000000000000000000000000000000000fffFfF`，那个地址只用于 Reactive Network 系统合约
 
 3. 获取测试币
    - Sepolia ETH: https://sepoliafaucet.com/
@@ -89,7 +91,7 @@ cast send $ORIGIN_ADDR --rpc-url $ORIGIN_RPC --private-key $ORIGIN_PRIVATE_KEY -
 ## 关键参数说明
 
 - **SYSTEM_CONTRACT_ADDR**: Reactive Network 系统合约地址
-- **DESTINATION_CALLBACK_PROXY_ADDR**: 目标链回调代理地址
+- **DESTINATION_CALLBACK_PROXY_ADDR**: 目标链回调代理地址。Sepolia 当前应为 `0xc9f36411C9897e7F959D99ffca2a0Ba7ee0D7bDA`
 - **ORIGIN_CHAIN_ID / DESTINATION_CHAIN_ID**: 链 ID（参考 Reactive 文档）
 - **topic_0**: 事件签名的 keccak256 哈希值
 
